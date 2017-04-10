@@ -1,7 +1,25 @@
 <h2> login partial </h2>
 
-<form action='/sessions' method='POST'>
-  <input type='text' name='username' placeholder='username'>
-  <input type='password' name='password' placeholder='password'>
-  <input type='submit' value='Login'>
-</form>
+<div class="login_container">
+
+	<% if logged_in? %>	
+	
+		<%= current_user.username %>
+		<Form action = '/sessions' method='POST'>
+			<input type='hidden' name='_method' value='DELETE'>
+			<input type='submit' value='Log Out'>
+		</Form>
+	
+	<% else %>
+
+		<form action='/sessions' method='POST'>
+		  <input type='text' name='username' placeholder='username'>
+		  <input type='password' name='password' placeholder='password'>
+		  <input type='submit' value='Login'>
+		</form>
+
+		<form action='/sessios/new' method='GET'>
+			<input type='submit' value='Register'>
+		</form>
+	<% end %>
+</div>
