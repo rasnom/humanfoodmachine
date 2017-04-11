@@ -10,9 +10,6 @@ require 'sqlite3'
 class SnackInfo 
 	attr_reader :ndbno
 
-	def initialize
-		@api_key = 'cEDbVOlJ2QbGv3aATJoLpVIVkIQDs6W3sTxC5Bbp'
-	end
 
 	def upc_search(upc)
 		response = HTTParty.get("https://api.nal.usda.gov/ndb/search/" +
@@ -29,5 +26,6 @@ class SnackInfo
 			"&api_key=#{@api_key}")
 		report = JSON.parse(response.body)['report']['food']
 	end
+
 
 end
