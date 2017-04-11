@@ -10,12 +10,16 @@ require 'rubygems'
 
 require 'bcrypt'
 
+require 'httparty'
+
 require 'uri'
 require 'pathname'
 
 require 'pg'
 require 'active_record'
 require 'logger'
+
+require 'byebug'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
@@ -26,6 +30,8 @@ require 'erb'
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
+
+ENV['NDB_API_KEY'] = 'cEDbVOlJ2QbGv3aATJoLpVIVkIQDs6W3sTxC5Bbp'
 
 configure do
   # By default, Sinatra assumes that the root is the file that calls the configure block.
