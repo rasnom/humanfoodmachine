@@ -3,9 +3,9 @@ get '/users/new' do
 end
 
 post '/users' do
-	new_user = User.new(params[user])
+	new_user = User.new(params[:user])
 	if new_user.save
-		session[id] = new_user.id
+		session[:id] = new_user.id
 		redirect '/'
 	else
 		@errors = ['Something went wrong with registration.']
