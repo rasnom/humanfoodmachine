@@ -12,3 +12,4 @@ post '/users' do
 		erb :'users/new', layout: false
 	end
 end
+
