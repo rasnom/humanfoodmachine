@@ -18,6 +18,8 @@ gem 'shotgun', '~>0.9.1'
 
 gem 'httparty'
 
+gem 'byebug'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
