@@ -6,9 +6,11 @@
 <% if @search_results %>
 	<% @search_results.each do |found_snack| %>
 		<% p found_snack %>
+		<% p found_snack["name"] %>
+		<% p found_snack["ndbno"] %>
 		<%= found_snack["name"] %>
-		<input type='hidden' name='nbdno value=' + <%= found_snack["nbdno"] %>>
 		<form action='/snacks' method='POST'>
+			<input type='hidden' name='ndbno' value=<%= "'" + found_snack["ndbno"] + "'" %> >
 			<input type='submit' value='Stock Snack'>
 		</form> 
 	<% end %>

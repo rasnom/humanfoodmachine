@@ -13,4 +13,15 @@ class Snack < ActiveRecord::Base
   		search_results << result[:name]
   	end
   end 
+
+  def initialize(args)
+  	super
+  	p ndbno
+  	response = HTTParty.get("https://api.nal.usda.gov/ndb/reports" +
+  		"?format=json&type=full&ndbno=" + args[:ndbno] +
+			"&ds=Branded+Food+Products&api_key=#{ENV['NDB_API_KEY']}")
+  	p response
+  end
+
 end
+
