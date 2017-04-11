@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(submitted_username, submitted_password)
-    self.username == submitted_username && self.password = submitted_password
+    user = User.find_by(username: submitted_username)
+    (user && user.password == submitted_password)
   end
 end
 
