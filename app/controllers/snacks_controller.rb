@@ -22,3 +22,8 @@ post '/snacks' do
     erb :'/snacks/new'
   end
 end
+
+get '/snacks/:id' do
+  @snack = Snack.find(params[:id])
+  erb :'/snacks/show'
+end
