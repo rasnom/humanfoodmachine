@@ -42,8 +42,6 @@ class Snack < ActiveRecord::Base
       end
     end
 
-
-
   end
 
 end
