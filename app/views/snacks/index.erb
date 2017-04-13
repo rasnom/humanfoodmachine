@@ -1,5 +1,5 @@
 <ul>
   <% @all_snacks.each do |snack| %>
-    <li> <%= snack.name %> </li>
+    <li><a href='/snacks/<%= snack.id %>'> <%= snack.name %> </a></li>
   <% end %>
 </ul>
