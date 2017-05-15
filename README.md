@@ -1,30 +1,31 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+# Humanfoodmachines
 
-### Purpose
-The Sinatra Skeleton:
+Digital protototypes of vending machine interfaces as art.
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+## Conspire
 
-### Quickstart
+How would your snacking choicees differ if you had to collaborate to enact them? 
 
-1.  `bundle install`
-2.  `shotgun config.ru`
+Three people is where the overhead of coordination starts to be inevitable. In this model, two people must simultaneously work to make a selection while a third executes it.
 
-As needed, create models & migrations with the `rake` tasks:
+### Status
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
+Just starting (5/15/17)
 
-### Contributing
+Implement MVP as way to play with Pubnub.
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
+## Opine
 
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
+Use the USDA's food nutrition database as a training set to map a 'snack space'. From that create a minimum spanning set of axes (or maybe slightly below minimum, with some probabalistic elements). These can then be used as the back end for an abstract interface. Basically the machine looks at its contents, decides how to group and organize them, and then the users need to learn over time how to communicate with it in order to retrieve a particular snack.
 
-Be prepared to give and receive specific, actionable, and kind feedback!
+### Status
+
+Rebuild in rails 
+
+### Change
+
+Change machine that provides a fun experience, and does return change, but not the full amount.
+
+### Status
+
+Older idea, but would be pretty easy to mock up.
