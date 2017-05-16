@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Humanfoodmachines
 
 Digital protototypes of vending machine interfaces as art.
