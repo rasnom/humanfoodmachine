@@ -20,9 +20,9 @@ Use the USDA's food nutrition database as a training set to map a 'snack space'.
 
 ### Status
 
-Rebuild in rails 
+Need to rebuild in rails 
 
-### Change
+## Change
 
 Change machine that provides a fun experience, and does return change, but not the full amount.
 
