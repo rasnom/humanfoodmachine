@@ -4,7 +4,7 @@ Digital protototypes of vending machine interfaces as art.
 
 ## Conspire
 
-How would your snacking choicees differ if you had to collaborate to enact them? 
+How would your snacking choices differ if you had to collaborate to enact them? 
 
 Three people is where the overhead of coordination starts to be inevitable. In this model, two people must simultaneously work to make a selection while a third executes it.
 
