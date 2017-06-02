@@ -1,5 +1,11 @@
 var MachineSelector = React.createClass({
 
+  getInitialState: function() {
+    return {
+      currentMachine: "Initial Default"
+    }
+  },
+
   handleMachineChange: function(e) {
     console.log(this)
   },
@@ -22,6 +28,10 @@ var MachineSelector = React.createClass({
       <div>
         <h3>Here is where you pick the machine</h3>
         <ul>{this.optionsList()}</ul>
+        <div>
+          Current Machine is
+          <Machine title={this.state.currentMachine} />
+        </div>
       </div>
     )
   }
