@@ -1,14 +1,27 @@
 var MachineSelector = React.createClass({
-  render: function() {
-    var optionsList = this.props.options.map(function(option) {
-      return <li>{option}</li>
+
+  handleMachineChange: function(e) {
+    console.log(this)
+  },
+
+  optionsList: function() {
+    var that = this;
+    return that.props.options.map(function(option) {
+      return (
+        <li>
+          <button onClick={that.handleMachineChange}>
+            {option}
+          </button>
+        </li>
+      )
     });
+  },
 
-
+  render: function() {
     return (
       <div>
         <h3>Here is where you pick the machine</h3>
-        <ul>{optionsList}</ul>
+        <ul>{this.optionsList()}</ul>
       </div>
     )
   }
