@@ -1,13 +1,17 @@
 var MachineSelector = React.createClass({
-
   getInitialState: function() {
     return {
-      currentMachine: "Initial Default"
+      currentMachine: GenericMachine
     }
   },
 
   handleMachineChange: function(e) {
-    console.log(this)
+    const machines = {
+      "Generic Machine": GenericMachine,
+      "Conspire": ConspireMachine
+    };
+
+    this.setState({currentMachine: machines[e.target.value]})
   },
 
   optionsList: function() {
@@ -15,7 +19,7 @@ var MachineSelector = React.createClass({
     return that.props.options.map(function(option) {
       return (
         <li>
-          <button onClick={that.handleMachineChange}>
+          <button onClick={that.handleMachineChange} value={option}>
             {option}
           </button>
         </li>
@@ -30,7 +34,7 @@ var MachineSelector = React.createClass({
         <ul>{this.optionsList()}</ul>
         <div>
           Current Machine is
-          <Machine title={this.state.currentMachine} />
+          <this.state.currentMachine />
         </div>
       </div>
     )
