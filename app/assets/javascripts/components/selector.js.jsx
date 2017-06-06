@@ -10,7 +10,6 @@ var MachineSelector = React.createClass({
       "Generic Machine": GenericMachine,
       "Conspire": ConspireMachine
     };
-
     this.setState({currentMachine: machines[e.target.value]})
   },
 
