@@ -2,15 +2,28 @@
 
 var ConspireMachine = React.createClass({
   getInitialState: function() {
-    pubnub = new PubNub({
-        publishKey : 'demo',
-        subscribeKey : 'demo'
-    })
-    pubnub.subscribe({channels: ['something']})
     return {
       selection: null,
-      pubnub: pubnub
+      pubnub: this.setUpPubnub(['something'])
     }
+  },
+
+  setUpPubnub: function(listen_channels) {
+    connection = new PubNub({
+      publishKey : 'demo',
+      subscribeKey : 'demo'
+    });
+
+    connection.addListener({
+      message: function(message) {
+        console.log('New Message! ', message);
+      }
+    });
+
+    connection.subscribe({
+        channels: listen_channels
+    });
+    return connection;
   },
 
   getDefaultProps: function() {
