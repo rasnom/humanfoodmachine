@@ -1,29 +1,57 @@
 
 
 var ConspireMachine = React.createClass({
-  getInitialState: function() {
-    return {
-      selection: null,
-      pubnub: this.setUpPubnub(['something'])
-    }
+  incrementPoll: function(label) {
+    console.log("in incrementPoll")
+    console.log("this")
+    console.log(this)
+    this.setState(prevState => {
+      console.log("prevState")
+      console.log(prevState)
+      console.log("****** prevState")
+      var poll = prevState.selectionPoll;
+      console.log("poll -- ");
+      console.log(poll);
+      poll[label] += 1;
+      return { selectionPoll: poll }
+    });
   },
 
-  setUpPubnub: function(listen_channels) {
-    connection = new PubNub({
+  getInitialState: function() {
+    var emptyPoll = this.generateEmptyPoll(this.props.stock);
+
+    var that = this;
+    var connection = new PubNub({
       publishKey : 'demo',
       subscribeKey : 'demo'
     });
-
     connection.addListener({
       message: function(message) {
-        console.log('New Message! ', message);
+        console.log("in addListener")
+        console.log(that)
+        console.log("just displayed that")
+        that.incrementPoll(message.message)
       }
     });
-
     connection.subscribe({
-        channels: listen_channels
+        channels: ['something']
     });
-    return connection;
+
+    console.log("connection")
+    console.log(connection)
+    return {
+      selection: null,
+      selectionPoll: emptyPoll,
+      pubnub: connection
+    }
+  },
+
+  generateEmptyPoll: function(options) {
+    var emptyPoll = {};
+    options.forEach( function(element) {
+      emptyPoll[element] = 0
+    });
+    return emptyPoll;
   },
 
   getDefaultProps: function() {
@@ -35,8 +63,9 @@ var ConspireMachine = React.createClass({
 
   handleSelection: function(e) {
     this.setState({selection: e.target.value});
-    this.state.pubnub.publish({
-        message: 'switched!',
+    this.state.pubnub.publish(
+      {
+        message: e.target.value,
         channel: 'something'
       },
       function(status, response) {
@@ -51,7 +80,7 @@ var ConspireMachine = React.createClass({
   },
 
   displayOptions: function() {
-    that = this;
+    var that = this;
     return (
       <ul>
         {this.props.stock.map( function(item) {
