@@ -34,7 +34,7 @@ var ConspireMachine = React.createClass({
   },
 
   // componentWillUnmount: function() {
-  //   console.log("unmounting conpsire component");
+  //   console.log("unmounting conspire component");
 
   // },
 
@@ -62,9 +62,13 @@ var ConspireMachine = React.createClass({
       <ul>
         {this.props.stock.map( function(item) {
           return (
-            <li><button value={item} onClick={that.handleSelection}>
-              {item}
-            </button></li>
+             <li>
+              <ConspireMomentarySwitch
+                label = {item}
+                action = {console.log.bind(console, item)}
+              >
+              </ConspireMomentarySwitch>
+            </li>
           )
         })}
       </ul>
