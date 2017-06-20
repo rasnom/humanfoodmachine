@@ -17,18 +17,17 @@ var ConspireMachine = React.createClass({
     });
     connection.addListener({
       message: function(message) {
-        console.log(message.message)
+        console.log(message.message);
       }
     });
     connection.subscribe({
         channels: [this.props.channel]
     });
 
-    console.log("connection")
-    console.log(connection)
+    // console.log("connection")
+    // console.log(connection)
     return {
       selection: null,
-
       pubnub: connection
     }
   },
@@ -38,7 +37,7 @@ var ConspireMachine = React.createClass({
 
   // },
 
-  handleSelection: function(e) {
+  makeSelection: function(e) {
     this.setState({selection: e.target.value});
     this.state.pubnub.publish(
       {
@@ -48,12 +47,31 @@ var ConspireMachine = React.createClass({
       function(status, response) {
         if (status.error) {
             // handle error
-            console.log(status)
+            console.log("error: ");
+            console.log(status);
         } else {
-            console.log("switch message Published w/ timetoken", response.timetoken)
+            // console.log("switch message Published w/ timetoken", response.timetoken);
         }
       }
     );
+  },
+
+  clearSelection: function() {
+    this.state.pubnub.publish(
+      {
+        message: "clear the selection",
+        channel: this.props.channel
+      },
+      function(status, response) {
+        if (status.error) {
+          // handle error
+          console.log("error:");
+          console.log(status);
+        } else {
+          // console.log("clear selection message Published w/ timetoken", response.timetoken);
+        }
+      }
+    )
   },
 
   displayOptions: function() {
@@ -65,7 +83,8 @@ var ConspireMachine = React.createClass({
              <li>
               <ConspireMomentarySwitch
                 label = {item}
-                action = {console.log.bind(console, item)}
+                action = {that.makeSelection}
+                release = {that.clearSelection}
               >
               </ConspireMomentarySwitch>
             </li>
