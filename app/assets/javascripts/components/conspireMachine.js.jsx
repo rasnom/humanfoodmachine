@@ -17,7 +17,14 @@ var ConspireMachine = React.createClass({
     });
     connection.addListener({
       message: function(message) {
-        console.log(message.message);
+        if (that.props.stock.includes(message.message)) {
+          console.log("setting");
+          that.setState({selection: message.message});
+        } else {
+          console.log("clearing...")
+          that.setState({selection: null});
+        }
+        console.log(that.state.selection)
       }
     });
     connection.subscribe({
@@ -38,7 +45,7 @@ var ConspireMachine = React.createClass({
   // },
 
   makeSelection: function(e) {
-    this.setState({selection: e.target.value});
+    // this.setState({selection: e.target.value});
     this.state.pubnub.publish(
       {
         message: e.target.value,
