@@ -18,10 +18,8 @@ var ConspireMachine = React.createClass({
     connection.addListener({
       message: function(message) {
         if (that.props.stock.includes(message.message)) {
-          console.log("setting");
           that.setState({selection: message.message});
         } else {
-          console.log("clearing...")
           that.setState({selection: null});
         }
         console.log(that.state.selection)
@@ -92,6 +90,7 @@ var ConspireMachine = React.createClass({
                 label = {item}
                 action = {that.makeSelection}
                 release = {that.clearSelection}
+                currentlySelected = {item == that.state.selection}
               >
               </ConspireMomentarySwitch>
             </li>
