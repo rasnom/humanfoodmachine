@@ -33,10 +33,10 @@ var MachineSelector = React.createClass({
   render: function() {
     return (
       <div>
-        <h3>Here is where you pick the machine</h3>
+        <h3>Select a machine to use: </h3>
         {this.optionsList()}
         <div>
-          Current Machine is
+          Current Machine is:
           <this.state.currentMachine stock={this.props.stock} />
         </div>
       </div>

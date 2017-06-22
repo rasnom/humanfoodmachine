@@ -43,7 +43,6 @@ var ConspireMachine = React.createClass({
   // },
 
   makeSelection: function(e) {
-    // this.setState({selection: e.target.value});
     this.state.pubnub.publish(
       {
         message: e.target.value,
