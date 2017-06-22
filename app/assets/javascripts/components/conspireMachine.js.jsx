@@ -103,6 +103,8 @@ var ConspireMachine = React.createClass({
   handleSubmit: function() {
     if (this.state.selection != null) {
       alert ('you got a ' + this.state.selection)
+    } else {
+      alert ('an item must be selected at the time of submission')
     }
   },
 

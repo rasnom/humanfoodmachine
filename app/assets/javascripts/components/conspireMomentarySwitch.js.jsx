@@ -10,7 +10,7 @@ var ConspireMomentarySwitch = React.createClass({
 
   momentarySwitchStyle: function() {
     if (this.props.currentlySelected) {
-      return {color: "red"}
+      return {color: "green"}
     } else {
       return {color: "gray"}
     }
