@@ -10,9 +10,7 @@ Three people is where the overhead of coordination starts to be inevitable. In t
 
 ### Status
 
-Just starting (5/15/17)
-
-Implement MVP as way to play with Pubnub.
+Proof of concept implemented and deployed. No styling.
 
 ## Opine
 
@@ -28,4 +26,4 @@ Change machine that provides a fun experience, and does return change, but not t
 
 ### Status
 
-Older idea, but would be pretty easy to mock up.
+Older idea, should be pretty easy to mock up.
