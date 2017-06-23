@@ -1,7 +1,7 @@
 var MachineSelector = React.createClass({
   getInitialState: function() {
     return {
-      currentMachine: GenericMachine
+      currentMachine: null
     }
   },
 
@@ -16,7 +16,7 @@ var MachineSelector = React.createClass({
   optionsList: function() {
     var that = this;
     return (
-      <ul>
+      <ul className=''>
         {this.props.options.map( function(option) {
           return (
             <li>
@@ -30,14 +30,19 @@ var MachineSelector = React.createClass({
     )
   },
 
+  displayMachine: function() {
+    if (this.state.currentMachine != null) {
+      return <this.state.currentMachine stock={this.props.stock} />
+    }
+  },
+
   render: function() {
     return (
-      <div>
+      <div className='machineSelector'>
         <h3>Select a machine to use: </h3>
         {this.optionsList()}
         <div>
-          Current Machine is:
-          <this.state.currentMachine stock={this.props.stock} />
+          {this.displayMachine()}
         </div>
       </div>
     )

@@ -12,7 +12,7 @@ var ConspireMomentarySwitch = React.createClass({
     if (this.props.currentlySelected) {
       return {color: "green"}
     } else {
-      return {color: "gray"}
+      return {color: "black"}
     }
   },
 

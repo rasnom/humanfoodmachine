@@ -37,7 +37,7 @@ var GenericMachine = React.createClass({
   render: function() {
     return (
       <div>
-        <h3>{this.props.title}</h3>
+        <h2>{this.props.title}</h2>
         <p>{this.props.description}</p>
         {this.displayInterface()}
       </div>
