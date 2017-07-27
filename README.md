@@ -2,11 +2,13 @@
 
 Digital protototypes of vending machine interfaces as art.
 
+I think there is a lot of potential to create vending machines with unusual interfaces that straddle the art/commerce line. This repo is a place to quickly build and test interesting interactions.
+
 ## Conspire
 
 How would your snacking choices differ if you had to collaborate to enact them?
 
-Three people is where the overhead of coordination starts to be inevitable. In this model, two people must simultaneously work to make a selection while a third executes it.
+In this model, two people must simultaneously work together (in two separate browsers) to make a selection and submit a selection. It is also a chance to try out PubNub for real-time interactions.
 
 ### Status
 
